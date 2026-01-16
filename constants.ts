@@ -102,16 +102,12 @@ export const ACHIEVEMENTS: Achievement[] = [
   }
 ];
 
-// Helper to generate a reliable screenshot URL via thum.io
-const getScreenshotUrl = (url: string) => `https://image.thum.io/get/width/1200/crop/800/noanimate/${url}`;
-
 export const WEBSITES: Website[] = [
   {
     id: 'taeed-ai',
     name: 'TAEED AI',
     description: 'AI-powered healthcare support system designed to improve medication safety, especially for elderly and low-literacy users in developing countries.',
     url: 'https://taeeed.vercel.app/',
-    image: getScreenshotUrl('https://taeeed.vercel.app/'),
     techStack: ['AI', 'React', 'Healthcare']
   },
   {
@@ -119,7 +115,6 @@ export const WEBSITES: Website[] = [
     name: 'Ask SHU',
     description: 'A precision replica of Salim Habib University’s web presence featuring a live, interactive AI chatbot responding to real-time student queries.',
     url: 'https://askshu-by-nbl.vercel.app/',
-    image: getScreenshotUrl('https://askshu-by-nbl.vercel.app/'),
     techStack: ['Next.js', 'LLM', 'Tailwind']
   },
   {
@@ -127,7 +122,6 @@ export const WEBSITES: Website[] = [
     name: 'Bhook Busters',
     description: 'A dedicated lunchbox system for university campuses, enabling seamless menu updates and real-time order management.',
     url: 'https://bhook-busters.vercel.app/',
-    image: getScreenshotUrl('https://bhook-busters.vercel.app/'),
     techStack: ['React', 'Management', 'Firebase']
   },
   {
@@ -135,7 +129,6 @@ export const WEBSITES: Website[] = [
     name: 'Study Buddy',
     description: 'A limitless productivity suite designed specifically for students who refuse to accept academic boundaries.',
     url: 'https://study-buddy-by-nbl.vercel.app/',
-    image: getScreenshotUrl('https://study-buddy-by-nbl.vercel.app/'),
     techStack: ['Productivity', 'React', 'UI/UX']
   },
   {
@@ -143,7 +136,6 @@ export const WEBSITES: Website[] = [
     name: 'Focus Flow',
     description: 'A digital sanctuary engineered for deep work, minimizing cognitive load through minimalist interface design.',
     url: 'https://focus-flow-by-nbl.vercel.app/',
-    image: getScreenshotUrl('https://focus-flow-by-nbl.vercel.app/'),
     techStack: ['Efficiency', 'React', 'Framer']
   },
   {
@@ -151,7 +143,6 @@ export const WEBSITES: Website[] = [
     name: 'Mayfa Couture',
     description: 'A sophisticated digital storefront for a premium fashion house, focusing on high-end visual storytelling.',
     url: 'https://mayfa-couture.vercel.app/',
-    image: getScreenshotUrl('https://mayfa-couture.vercel.app/'),
     techStack: ['E-commerce', 'Aesthetics', 'Tailwind']
   },
   {
@@ -159,7 +150,6 @@ export const WEBSITES: Website[] = [
     name: 'Dr. Classroom',
     description: 'A specialized educational hub designed to bridge the gap between instructors and their digital classrooms.',
     url: 'https://dr-classroom.vercel.app/',
-    image: getScreenshotUrl('https://dr-classroom.vercel.app/'),
     techStack: ['Education', 'CMS', 'React']
   },
   {
@@ -167,7 +157,6 @@ export const WEBSITES: Website[] = [
     name: 'ArtsyCrafsy',
     description: 'An elegant portfolio system crafted for artists to showcase their work without technical friction.',
     url: 'https://artfsycraftfsy.vercel.app/',
-    image: getScreenshotUrl('https://artfsycraftfsy.vercel.app/'),
     techStack: ['Portfolio', 'Design', 'Minimalism']
   },
   {
@@ -175,7 +164,6 @@ export const WEBSITES: Website[] = [
     name: 'Dream Rizq',
     description: 'A digital platform dedicated to Islamic mindfulness and spiritual financial alignment.',
     url: 'https://dream-rizq.vercel.app/',
-    image: getScreenshotUrl('https://dream-rizq.vercel.app/'),
     techStack: ['Islamic', 'Community', 'Tailwind']
   },
   {
@@ -183,7 +171,6 @@ export const WEBSITES: Website[] = [
     name: 'Mind Reader',
     description: 'A theatrical technical subversion designed to challenge user expectations (and perform a little trolling).',
     url: 'https://mindreaderbynbl.vercel.app/',
-    image: getScreenshotUrl('https://mindreaderbynbl.vercel.app/'),
     techStack: ['Experimental', 'Satire', 'JS']
   },
   {
@@ -191,7 +178,6 @@ export const WEBSITES: Website[] = [
     name: 'The Calculator',
     description: 'A playful exploration of interface subversion. Not your standard arithmetic tool.',
     url: 'https://calculatorbynbl.vercel.app/',
-    image: getScreenshotUrl('https://calculatorbynbl.vercel.app/'),
     techStack: ['Experimental', 'Satire', 'React']
   },
   {
@@ -199,7 +185,6 @@ export const WEBSITES: Website[] = [
     name: '2024 Archive',
     description: 'A retrospective look at previous design iterations and technical milestones from early 2024.',
     url: 'https://portfolio24-by-nbl.vercel.app/',
-    image: getScreenshotUrl('https://portfolio24-by-nbl.vercel.app/'),
     techStack: ['Archive', 'History', 'React']
   }
 ];

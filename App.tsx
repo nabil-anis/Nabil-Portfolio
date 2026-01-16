@@ -96,7 +96,6 @@ const App: React.FC = () => {
               <p className="text-black dark:text-white border-b border-black/[0.05] dark:border-white/[0.05] pb-2 px-2">Contact</p>
               <div className="flex flex-col space-y-3">
                 <a href="mailto:hello@nabil.build" className="hover:text-apple-blue transition-colors">Email</a>
-                <a href="#" className="hover:text-apple-blue transition-colors">Calendar</a>
               </div>
             </div>
             <div className="space-y-4 min-w-[120px]">

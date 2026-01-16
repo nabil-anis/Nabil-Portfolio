@@ -1,7 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WEBSITES } from '../constants';
+
+type Viewport = 'desktop' | 'mobile';
 
 export const Websites: React.FC = () => {
   return (
@@ -14,18 +16,18 @@ export const Websites: React.FC = () => {
           className="mb-20 md:mb-48"
         >
           <div className="inline-block px-4 py-1.5 rounded-full bg-apple-blue/5 border border-apple-blue/10 text-apple-blue text-[9px] font-black uppercase tracking-[0.4em] mb-8">
-            Digital Estates
+            Live Prototypes
           </div>
           <h2 className="text-4xl md:text-8xl font-bold tracking-tight text-black dark:text-white mb-8 md:mb-12 leading-[1.1]">
-            Interfaces.
+            The Lab.
           </h2>
-          <p className="text-xl md:text-3xl text-gray-400 dark:text-gray-500 max-w-2xl font-medium leading-tight text-balance text-left">
-            A collection of layouts designed for clarity and utility. I prefer environments that require zero explanation. 
-            The internet is already crowded enough; I choose to be quiet but effective.
+          <p className="text-xl md:text-3xl text-gray-400 dark:text-gray-500 max-w-2xl font-medium leading-tight text-balance text-left font-sans">
+            A builder's output shouldn't be static. These are live environments. 
+            Initialize the handshake to interact with the production instances.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
+        <div className="flex flex-col gap-32 md:gap-64">
           {WEBSITES.map((site) => (
             <WebsiteCard key={site.id} site={site} />
           ))}
@@ -36,84 +38,233 @@ export const Websites: React.FC = () => {
 };
 
 const WebsiteCard: React.FC<{ site: typeof WEBSITES[0] }> = ({ site }) => {
+  const [isActive, setIsActive] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [viewport, setViewport] = useState<Viewport>('desktop');
+  const [logs, setLogs] = useState<string[]>([]);
+  
+  const terminalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isActive && !isLoaded) {
+      const initialLogs = [
+        'INITIALIZING_HANDSHAKE...',
+        'RESOLVING_HOST: ' + site.url.split('/')[2],
+        'ESTABLISHING_TLS_TUNNEL...',
+        'MOUNTING_REMOTE_ASSETS...',
+        'SYSTEM_STABLE.'
+      ];
+      
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < initialLogs.length) {
+          setLogs(prev => [...prev, `[${new Date().toLocaleTimeString()}] ${initialLogs[i]}`]);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 400);
+      return () => clearInterval(interval);
+    }
+  }, [isActive, isLoaded, site.url]);
+
+  useEffect(() => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+    }
+  }, [logs]);
+
+  const resetInstance = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsActive(false);
+    setIsLoaded(false);
+    setLogs([]);
+  };
+
+  const metadata = {
+    class: site.techStack?.includes('AI') ? 'NEURAL_UNIT' : 'UI_COMPONENT',
+    status: isActive ? (isLoaded ? 'LIVE_STREAMING' : 'CONNECTING') : 'STANDBY',
+    load: isActive ? '0.04ms' : '0.00ms'
+  };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
       className="group"
     >
-      <div className="flex flex-col h-full space-y-8 md:space-y-10">
-        {/* Browser Window UI Wrapper */}
-        <a 
-          href={site.url} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="relative block w-full rounded-[2.5rem] bg-apple-gray-50 dark:bg-apple-gray-500/5 border border-black/[0.08] dark:border-white/[0.08] overflow-hidden group-hover:border-apple-blue/30 transition-all duration-700 cursor-pointer shadow-sm group-hover:shadow-2xl group-hover:shadow-apple-blue/10 transform-gpu group-hover:-translate-y-2"
-        >
-          {/* Mac Header Simulation */}
-          <div className="h-8 md:h-10 bg-black/[0.03] dark:bg-white/[0.03] border-b border-black/[0.05] dark:border-white/[0.05] flex items-center px-4 md:px-6 gap-2">
-            <div className="flex gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        {/* Left Column: Context */}
+        <div className="lg:col-span-4 space-y-10 order-2 lg:order-1">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-green-500 animate-pulse' : 'bg-apple-blue opacity-30'}`} />
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 dark:text-zinc-600">
+                Instance ID: {site.id.toUpperCase()}
+              </span>
             </div>
-            <div className="mx-auto flex items-center gap-2 bg-white/50 dark:bg-black/50 px-4 py-1 rounded-md border border-black/[0.05] dark:border-white/[0.05] w-2/3 md:w-1/2">
-               <div className="w-2 h-2 rounded-full border border-gray-400 opacity-30" />
-               <span className="text-[8px] font-bold text-gray-400 truncate opacity-50 uppercase tracking-widest">{site.url}</span>
-            </div>
-          </div>
-
-          <div className="relative aspect-[16/10] overflow-hidden">
-            {/* Shimmer Loading Effect */}
-            {!isLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 dark:via-white/5 to-transparent animate-shimmer" 
-                   style={{ backgroundSize: '200% 100%' }} />
-            )}
-            
-            {/* Real Image Preview */}
-            <img 
-              src={site.image} 
-              alt={site.name}
-              onLoad={() => setIsLoaded(true)}
-              className={`w-full h-full object-cover object-top transition-all duration-1000 ease-out transform-gpu group-hover:scale-[1.03] group-hover:translate-y-[-5%] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-              loading="lazy"
-            />
-
-            {/* Subtle Gradient Hover Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            {/* Hover "View Project" Text */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="glass px-6 py-3 rounded-full border border-white/20 shadow-xl backdrop-blur-md scale-90 group-hover:scale-100 transition-transform duration-500">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-black dark:text-white">View Project</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <div className="space-y-6 px-2">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <h3 className="text-2xl md:text-4xl font-bold text-black dark:text-white tracking-tight">
+            <h3 className="text-3xl md:text-5xl font-bold text-black dark:text-white tracking-tighter">
               {site.name}
             </h3>
-            <div className="flex flex-wrap gap-2">
-              {site.techStack?.map((tech) => (
-                <span key={tech} className="px-3 py-1 rounded-full bg-black/[0.03] dark:bg-white/[0.05] text-[9px] font-black uppercase tracking-widest text-gray-400 group-hover:text-apple-blue transition-colors">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <div className="space-y-4">
-            <div className="h-[1px] w-full bg-black/[0.05] dark:bg-white/[0.05]" />
-            <p className="text-base md:text-xl text-gray-500 dark:text-gray-400 font-medium leading-relaxed max-w-xl text-balance text-left">
+            <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-medium leading-relaxed text-balance">
               {site.description}
             </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {site.techStack?.map((tech) => (
+              <span key={tech} className="px-3 py-1.5 rounded-lg border border-black/[0.05] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.02] text-[9px] font-black uppercase tracking-widest text-gray-500 dark:text-zinc-500">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {isActive && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="p-6 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.05] dark:border-white/[0.05] space-y-4"
+            >
+              <p className="text-[9px] font-black uppercase tracking-widest text-gray-400">System Logs</p>
+              <div 
+                ref={terminalRef}
+                className="h-32 overflow-y-auto font-mono text-[10px] space-y-1 text-apple-blue scroll-smooth"
+              >
+                {logs.map((log, i) => (
+                  <div key={i} className="opacity-80"><span className="opacity-40">{">"}</span> {log}</div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          <div className="pt-6">
+            <a 
+              href={site.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-4 group/link"
+            >
+              <div className="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover/link:bg-apple-blue group-hover/link:border-apple-blue transition-all duration-500">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black dark:text-white group-hover/link:text-white"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 group-hover/link:text-apple-blue transition-colors">Launch Independent Instance</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column: Interactive Browser */}
+        <div className="lg:col-span-8 order-1 lg:order-2">
+          <div 
+            className={`relative w-full transition-all duration-700 ease-[0.22,1,0.36,1] ${viewport === 'mobile' ? 'max-w-[380px] mx-auto' : 'max-w-none'}`}
+          >
+            <div className="relative rounded-[2.5rem] bg-white dark:bg-zinc-950 border border-black/[0.12] dark:border-white/[0.12] overflow-hidden shadow-2xl shadow-black/[0.05] dark:shadow-apple-blue/10 transform-gpu transition-all duration-500">
+              
+              {/* Enhanced MacOS Header */}
+              <div className="h-12 bg-white/90 dark:bg-black/90 backdrop-blur-xl border-b border-black/[0.08] dark:border-white/[0.08] flex items-center px-6 gap-6 z-30 relative">
+                <div className="flex gap-2 min-w-[50px]">
+                  <button onClick={resetInstance} className="w-3 h-3 rounded-full bg-[#ff5f56] hover:brightness-75 transition-all" />
+                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e] opacity-40" />
+                  <div className="w-3 h-3 rounded-full bg-[#27c93f] opacity-40" />
+                </div>
+                
+                {/* Viewport Toggles */}
+                <div className="flex bg-black/[0.05] dark:bg-white/[0.05] p-1 rounded-lg border border-black/[0.05] dark:border-white/[0.05]">
+                  <button 
+                    onClick={() => setViewport('desktop')}
+                    className={`p-1.5 rounded-md transition-all ${viewport === 'desktop' ? 'bg-white dark:bg-zinc-800 shadow-sm text-apple-blue' : 'text-gray-400 hover:text-black dark:hover:text-white'}`}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  </button>
+                  <button 
+                    onClick={() => setViewport('mobile')}
+                    className={`p-1.5 rounded-md transition-all ${viewport === 'mobile' ? 'bg-white dark:bg-zinc-800 shadow-sm text-apple-blue' : 'text-gray-400 hover:text-black dark:hover:text-white'}`}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                  </button>
+                </div>
+
+                <div className="flex-1 flex items-center gap-2 bg-black/[0.03] dark:bg-white/[0.03] px-4 py-1.5 rounded-full border border-black/[0.05] dark:border-white/[0.05] max-w-sm mx-auto">
+                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-green-500"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                   <span className="text-[9px] font-bold text-gray-400 truncate uppercase tracking-widest">{site.url.replace('https://', '')}</span>
+                </div>
+                
+                <div className="w-[50px] flex justify-end">
+                   <div className="w-2 h-2 rounded-full bg-apple-blue animate-pulse" />
+                </div>
+              </div>
+
+              {/* Main Display Area */}
+              <div className="relative aspect-[16/10] bg-apple-gray-50 dark:bg-zinc-950 overflow-hidden">
+                {/* Blueprint Background */}
+                <div className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.1]" style={{ backgroundImage: 'linear-gradient(#0066cc 1px, transparent 1px), linear-gradient(90deg, #0066cc 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                
+                {/* Handshake Scanning Effect */}
+                {isActive && !isLoaded && (
+                  <motion.div 
+                    initial={{ top: '-10%' }}
+                    animate={{ top: '110%' }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                    className="absolute left-0 right-0 h-[20%] bg-gradient-to-b from-transparent via-apple-blue/20 to-transparent z-10 pointer-events-none"
+                  />
+                )}
+
+                {!isActive ? (
+                  <div 
+                    onClick={() => setIsActive(true)}
+                    className="absolute inset-0 z-20 flex flex-col items-center justify-center cursor-pointer group/overlay transition-all duration-700 bg-black/[0.02] dark:bg-white/[0.01]"
+                  >
+                    <div className="text-center px-12 space-y-8">
+                       <motion.div 
+                        whileHover={{ scale: 1.1 }}
+                        className="w-24 h-24 mx-auto rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center bg-white dark:bg-black shadow-xl group-hover/overlay:border-apple-blue/40 transition-all duration-500"
+                       >
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-gray-300 dark:text-zinc-700 group-hover/overlay:text-apple-blue transition-colors">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" fillOpacity="0.05" />
+                          </svg>
+                       </motion.div>
+                       <div className="space-y-2">
+                         <h4 className="text-xs font-black uppercase tracking-[0.4em] text-gray-400 group-hover/overlay:text-apple-blue transition-colors">Initialize Production Interface</h4>
+                         <p className="text-[10px] font-medium text-gray-500 opacity-60 italic">Handshake required for live data stream</p>
+                       </div>
+                    </div>
+                    
+                    <div className="absolute bottom-8 left-8 flex gap-4">
+                        <div className="px-2 py-1 rounded border border-black/5 dark:border-white/5 text-[7px] font-black tracking-widest text-gray-400 uppercase">SYS_LOCKED</div>
+                        <div className="px-2 py-1 rounded border border-black/5 dark:border-white/5 text-[7px] font-black tracking-widest text-gray-400 uppercase">CLASS_A</div>
+                    </div>
+                  </div>
+                ) : (
+                  <iframe 
+                    src={site.url} 
+                    className={`w-full h-full border-none transition-all duration-1000 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+                    onLoad={() => setIsLoaded(true)}
+                    title={site.name}
+                  />
+                )}
+
+                {/* System Status Badges */}
+                <div className="absolute top-6 right-6 z-30 pointer-events-none space-y-2 flex flex-col items-end">
+                   <div className="px-3 py-1 rounded-md bg-black/80 dark:bg-white/95 backdrop-blur-md text-white dark:text-black text-[7px] font-black uppercase tracking-[0.2em] shadow-lg">
+                      {metadata.class}
+                   </div>
+                   <div className={`px-3 py-1 rounded-md text-white text-[7px] font-black uppercase tracking-[0.2em] shadow-lg transition-colors duration-500 ${isActive ? 'bg-green-500' : 'bg-apple-blue'}`}>
+                      {metadata.status}
+                   </div>
+                </div>
+                
+                {/* Physical Polish */}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.08] opacity-50 z-40" />
+              </div>
+            </div>
+            
+            {/* Viewport Label (Bottom) */}
+            <div className="mt-6 flex justify-center">
+              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-gray-400 opacity-40">
+                Resolution Mode: {viewport.toUpperCase()}
+              </span>
+            </div>
           </div>
         </div>
       </div>
