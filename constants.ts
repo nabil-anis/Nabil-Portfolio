@@ -8,7 +8,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Final Entrepreneurship project poster presentation. A systemic subversion of academic identity—replacing decorative transcripts with a verifiable, AI-analyzed project portfolio system.',
     date: '26 DECEMBER 2025',
     category: 'ENTREPRENEURSHIP',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop'
+    image: 'unifoooolio.jpeg'
   },
   {
     id: 'trace-project',
