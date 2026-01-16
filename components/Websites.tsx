@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WEBSITES } from '../constants';
@@ -155,7 +156,7 @@ const WebsiteCard: React.FC<{ site: typeof WEBSITES[0] }> = ({ site }) => {
 
         <div className="lg:col-span-8 order-1 lg:order-2 flex justify-center w-full overflow-hidden">
           <div 
-            className={`relative w-full transition-all duration-700 ease-[0.22,1,0.36,1] ${viewport === 'mobile' ? 'max-w-[320px] md:max-w-[360px]' : 'max-w-none'}`}
+            className={`relative w-full transition-all duration-700 ease-[0.22,1,0.36,1] ${viewport === 'mobile' ? 'max-w-[320px] md:max-w-[380px]' : 'max-w-none'}`}
           >
             <div className="relative rounded-[2.5rem] bg-white dark:bg-zinc-950 border border-black/[0.12] dark:border-white/[0.12] overflow-hidden shadow-2xl shadow-black/[0.05] dark:shadow-apple-blue/10 transform-gpu transition-all duration-500">
               <div className="h-12 bg-white/90 dark:bg-black/90 backdrop-blur-xl border-b border-black/[0.08] dark:border-white/[0.08] flex items-center px-4 md:px-6 gap-2 md:gap-6 z-50 relative">
@@ -184,13 +185,9 @@ const WebsiteCard: React.FC<{ site: typeof WEBSITES[0] }> = ({ site }) => {
                    <svg width="8" height="8" className="md:w-2.5 md:h-2.5 text-green-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                    <span className="text-[7px] md:text-[9px] font-bold text-gray-400 truncate uppercase tracking-widest">{site.url.replace('https://', '')}</span>
                 </div>
-                
-                <div className="flex items-center gap-2">
-                   <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${isActive ? 'bg-green-500' : 'bg-apple-blue'} animate-pulse shrink-0`} />
-                </div>
               </div>
 
-              <div className={`relative bg-apple-gray-50 dark:bg-zinc-950 overflow-hidden transition-all duration-700 ${viewport === 'mobile' ? 'aspect-[9/19]' : 'aspect-[16/10]'}`}>
+              <div className={`relative bg-apple-gray-50 dark:bg-zinc-950 overflow-hidden transition-all duration-700 ${viewport === 'mobile' ? 'aspect-[9/19.5] min-h-[680px]' : 'aspect-[16/10]'}`}>
                 <div className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.1]" style={{ backgroundImage: 'linear-gradient(#0066cc 1px, transparent 1px), linear-gradient(90deg, #0066cc 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                 
                 {isActive && !isLoaded && (
@@ -207,7 +204,16 @@ const WebsiteCard: React.FC<{ site: typeof WEBSITES[0] }> = ({ site }) => {
                     onClick={() => setIsActive(true)}
                     className="absolute inset-0 z-20 flex flex-col items-center justify-center cursor-pointer group/overlay transition-all duration-700 bg-black/[0.02] dark:bg-white/[0.01]"
                   >
-                    <div className="text-center px-6 md:px-12 space-y-6 md:space-y-8">
+                    {/* Website Thumbnail Placeholder */}
+                    <div className="absolute inset-0 z-10 opacity-40 grayscale group-hover/overlay:grayscale-0 group-hover/overlay:opacity-60 group-hover/overlay:scale-105 transition-all duration-1000">
+                       <img 
+                        src={site.image || `https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop`} 
+                        alt={site.name} 
+                        className="w-full h-full object-cover"
+                       />
+                    </div>
+                    
+                    <div className="relative z-20 text-center px-6 md:px-12 space-y-6 md:space-y-8 backdrop-blur-sm p-12 rounded-full border border-white/5 bg-white/5">
                        <motion.div 
                         whileHover={{ scale: 1.1 }}
                         className="w-16 h-16 md:w-24 md:h-24 mx-auto rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center bg-white dark:bg-black shadow-xl group-hover/overlay:border-apple-blue/40 transition-all duration-500"
@@ -218,13 +224,8 @@ const WebsiteCard: React.FC<{ site: typeof WEBSITES[0] }> = ({ site }) => {
                        </motion.div>
                        <div className="space-y-2">
                          <h4 className="text-[9px] md:text-xs font-black uppercase tracking-[0.4em] text-gray-400 group-hover/overlay:text-apple-blue transition-colors">Initialize Production Interface</h4>
-                         <p className="text-[7px] md:text-[10px] font-medium text-gray-500 opacity-60 italic">Handshake required for live data stream</p>
+                         <p className="text-[7px] md:text-[10px] font-medium text-gray-500 opacity-60 italic text-balance">Handshake required for live data stream</p>
                        </div>
-                    </div>
-                    
-                    <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 flex gap-3 md:gap-4">
-                        <div className="px-2 py-0.5 md:py-1 rounded border border-black/5 dark:border-white/5 text-[5px] md:text-[7px] font-black tracking-widest text-gray-400 uppercase">STREAM_LOCKED</div>
-                        <div className="px-2 py-0.5 md:py-1 rounded border border-black/5 dark:border-white/5 text-[5px] md:text-[7px] font-black tracking-widest text-gray-400 uppercase">PROTOCOL_V2</div>
                     </div>
                   </div>
                 ) : (

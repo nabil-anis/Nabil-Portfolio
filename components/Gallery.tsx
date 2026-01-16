@@ -53,13 +53,23 @@ export const Gallery: React.FC = () => {
               </div>
 
               <div className="space-y-12 md:space-y-20">
-                {/* Visual Placeholder */}
-                <div className="relative aspect-[16/10] w-full rounded-[2rem] md:rounded-[2.5rem] bg-apple-gray-50 dark:bg-apple-gray-500/5 border border-black/[0.03] dark:border-white/[0.03] overflow-hidden group">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[9px] md:text-[10px] font-bold tracking-[0.3em] text-gray-300 dark:text-zinc-800 uppercase text-center px-6 opacity-40 group-hover:opacity-100 transition-opacity">
-                      Systemic Visualization
-                    </span>
-                  </div>
+                {/* Visual Content */}
+                <div className="relative aspect-[16/10] w-full rounded-[2rem] md:rounded-[2.5rem] bg-apple-gray-50 dark:bg-apple-gray-500/5 border border-black/[0.03] dark:border-white/[0.03] overflow-hidden group shadow-sm">
+                  {item.image ? (
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[9px] md:text-[10px] font-bold tracking-[0.3em] text-gray-300 dark:text-zinc-800 uppercase text-center px-6 opacity-40 group-hover:opacity-100 transition-opacity">
+                        Systemic Visualization
+                      </span>
+                    </div>
+                  )}
+                  {/* Glass Overlay on Hover */}
+                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                 </div>
 
                 <div className="max-w-xl">

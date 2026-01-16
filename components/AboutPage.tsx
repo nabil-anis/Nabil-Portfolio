@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -7,12 +6,11 @@ export const AboutPage: React.FC = () => {
     { label: 'Caffeine Tolerance', value: 'High', detail: 'Runs on Dark Roast & Spite' },
     { label: 'Latency', value: '0.04ms', detail: 'Faster than your average builder' },
     { label: 'Semicolon Relations', value: 'Strained', detail: 'We are currently not speaking' },
-    // Use double quotes to handle the single quote in "doesn't"
     { label: 'Philosophy', value: 'Theatrical', detail: "If it doesn't look cool, does it even work?" },
   ];
 
   return (
-    <section className="min-h-screen pt-40 pb-20 px-6 bg-white dark:bg-black transition-colors duration-500 overflow-x-hidden">
+    <section className="min-h-screen pt-40 pb-20 px-6 bg-white dark:bg-black transition-colors duration-500 overflow-x-hidden relative">
       <div className="max-w-[1000px] mx-auto">
         {/* Theatrical Header */}
         <motion.div
@@ -29,8 +27,7 @@ export const AboutPage: React.FC = () => {
             <span className="text-gray-300 dark:text-zinc-800 italic">Human.</span>
           </h1>
           <p className="text-xl md:text-3xl font-medium text-gray-500 dark:text-gray-400 max-w-2xl leading-tight text-balance">
-            I was born at a very young age with an unfortunate obsession for how things fit together. 
-            Currently, I spend my time at Salim Habib University convincing computers that I am their superior.
+            A builder, not a spectator. A mind wired for systems, flows, and elegant shortcuts. I spent my time at Salim Habib University convincing computers that elegance and performance are not mutually exclusive.
           </p>
         </motion.div>
 
@@ -98,7 +95,6 @@ export const AboutPage: React.FC = () => {
             <p className="text-2xl md:text-3xl font-bold text-black dark:text-white italic tracking-tight">
               "If you're still reading this, you're either a recruiter or my mother. <br />Either way, let's talk."
             </p>
-            <div className="absolute -bottom-4 left-0 w-full h-[1px] bg-apple-blue scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
           </div>
           <div className="mt-12 flex justify-center gap-6">
              <div className="w-2 h-2 rounded-full bg-apple-blue animate-pulse" />
@@ -107,6 +103,9 @@ export const AboutPage: React.FC = () => {
           </div>
         </motion.div>
       </div>
+      
+      {/* Signature */}
+      <span className="absolute right-4 bottom-4 text-gray-300 dark:text-zinc-800 text-[10px] italic pointer-events-none">By nbl.</span>
     </section>
   );
 };
