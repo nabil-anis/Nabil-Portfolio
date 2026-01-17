@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ACHIEVEMENTS } from '../constants';
@@ -108,7 +109,7 @@ export const Gallery: React.FC = () => {
                   onClick={() => openLightbox(item, 0)}
                   className="relative aspect-[16/10] w-full rounded-[2rem] md:rounded-[2.5rem] bg-apple-gray-50 dark:bg-zinc-900/50 border border-black/[0.03] dark:border-white/[0.03] overflow-hidden group cursor-pointer shadow-xl shadow-black/5"
                 >
-                  {/* Floating Expand Icon - Improved Visibility */}
+                  {/* Floating Expand Icon */}
                   <div className="absolute top-6 right-6 z-20 pointer-events-none transition-all duration-500 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 dark:bg-black/80 backdrop-blur-xl border border-black/10 dark:border-white/20 flex items-center justify-center shadow-lg">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-black dark:text-white">
@@ -117,7 +118,17 @@ export const Gallery: React.FC = () => {
                     </div>
                   </div>
 
-                  {item.images && item.images.length > 0 ? (
+                  {/* Prioritize Video as background thumbnail */}
+                  {item.video ? (
+                    <video
+                      src={item.video}
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                    />
+                  ) : item.images && item.images.length > 0 ? (
                     <img 
                       src={item.images[0]} 
                       alt={item.title} 
@@ -219,7 +230,7 @@ export const Gallery: React.FC = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Navigation Controls with higher visibility */}
+              {/* Navigation Controls */}
               {getMediaList(selectedProject).length > 1 && (
                 <>
                   <button 

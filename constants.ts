@@ -8,10 +8,9 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '26 DECEMBER 2025',
     category: 'ENTREPRENEURSHIP',
     images: [
-      '/uni33.jpg',
-      '/uni22.jpg',
-      '/un11.jpg',
-      '/unifoooolio.jpeg'
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1504868584819-f8e90526354c?q=80&w=2340&auto=format&fit=crop'
     ],
     video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-circuit-board-1582-large.mp4'
   },
@@ -22,8 +21,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '23 DECEMBER 2025',
     category: 'HARDWARE',
     images: [
-      '/trace r&n.jpg',
-      '/public/trace2.jpg',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2340&auto=format&fit=crop'
     ],
     video: 'https://assets.mixkit.co/videos/preview/mixkit-close-up-of-electronic-circuit-board-4451-large.mp4'
@@ -35,12 +34,11 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '17–18 DECEMBER 2025',
     category: 'RESEARCH',
     images: [
-      '/tAED.jpg',
-      '/ta1.jpg',
-      '/t2.jpg',
-      '/t4.jpg'
+      'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2340&auto=format&fit=crop'
     ],
-    video: '/t5.mp4'
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-doctor-checking-a-patients-lungs-with-a-stethoscope-40502-large.mp4'
   },
   {
     id: 'filmfest-2025',
