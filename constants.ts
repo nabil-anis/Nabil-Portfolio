@@ -23,7 +23,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'HARDWARE',
     images: [
       '/trace r&n.jpg',
-      'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2340&auto=format&fit=crop',
+      '/public/trace2.jpg',
       'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2340&auto=format&fit=crop'
     ],
     video: 'https://assets.mixkit.co/videos/preview/mixkit-close-up-of-electronic-circuit-board-4451-large.mp4'
