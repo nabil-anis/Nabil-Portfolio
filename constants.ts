@@ -36,11 +36,11 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'RESEARCH',
     images: [
       '/tAED.jpg',
-      '/ta1',
-      '/t2',
-      '/t4'
+      '/ta1.jpg',
+      '/t2.jpg',
+      '/t4.jpg'
     ],
-    video: '/t5'
+    video: '/t5.mp4'
   },
   {
     id: 'filmfest-2025',
