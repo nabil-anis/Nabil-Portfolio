@@ -1,3 +1,4 @@
+
 import { Achievement, Website } from './types';
 
 export const ACHIEVEMENTS: Achievement[] = [
@@ -37,7 +38,8 @@ export const ACHIEVEMENTS: Achievement[] = [
       'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2340&auto=format&fit=crop'
-    ]
+    ],
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-doctor-checking-a-patients-lungs-with-a-stethoscope-40502-large.mp4'
   },
   {
     id: 'mit-2025',
@@ -47,7 +49,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'RECOGNITION',
     images: [
       'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2340&auto=format&fit=crop'
     ],
     video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-elements-loop-video-31627-large.mp4'
   },
@@ -61,7 +64,8 @@ export const ACHIEVEMENTS: Achievement[] = [
       'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2344&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2340&auto=format&fit=crop'
-    ]
+    ],
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-binary-code-background-31624-large.mp4'
   },
   {
     id: 'saylani-hack-2025',
@@ -71,8 +75,10 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'ENDURANCE',
     images: [
       'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2340&auto=format&fit=crop'
-    ]
+      'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2340&auto=format&fit=crop'
+    ],
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-typing-on-a-computer-keyboard-4562-large.mp4'
   },
   {
     id: 'ieee-day-2025',
@@ -82,7 +88,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'LEADERSHIP',
     images: [
       'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1540575861501-7ad060e29ad3?q=80&w=2340&auto=format&fit=crop'
     ]
   },
   {
@@ -93,7 +100,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'ENGINEERING',
     images: [
       'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2344&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2344&auto=format&fit=crop'
     ],
     video: 'https://assets.mixkit.co/videos/preview/mixkit-rotating-planet-earth-loop-11002-large.mp4'
   },
@@ -116,8 +124,10 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'INTELLIGENCE',
     images: [
       'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2340&auto=format&fit=crop'
-    ]
+      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?q=80&w=2340&auto=format&fit=crop'
+    ],
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-artificial-intelligence-interface-concept-31628-large.mp4'
   },
   {
     id: 'filmfest-2025',
@@ -127,7 +137,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'CREATIVE',
     images: [
       'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2342&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?q=80&w=2340&auto=format&fit=crop'
     ]
   },
   {
@@ -150,7 +161,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     images: [
       'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2340&auto=format&fit=crop'
-    ]
+    ],
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-business-man-using-a-laptop-4560-large.mp4'
   },
   {
     id: 'shu-chatbot',
@@ -161,7 +173,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     images: [
       'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2340&auto=format&fit=crop'
-    ]
+    ],
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-robot-hand-pointing-at-something-31623-large.mp4'
   },
   {
     id: 'mun-2024',
@@ -171,7 +184,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'DIPLOMACY',
     images: [
       'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1523240715639-99f84d3af106?q=80&w=2340&auto=format&fit=crop'
     ]
   }
 ];

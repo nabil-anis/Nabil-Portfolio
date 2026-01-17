@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ACHIEVEMENTS } from '../constants';
@@ -5,7 +6,7 @@ import { Achievement } from '../types';
 
 export const Gallery: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Achievement | null>(null);
-  const [currentMediaIndex, setCurrentMediaIndex] = useState(0); // 0 for video (if exists), then 1...n for images
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
 
   const openLightbox = (project: Achievement, index: number) => {
     setSelectedProject(project);
@@ -19,7 +20,6 @@ export const Gallery: React.FC = () => {
     document.body.style.overflow = 'auto';
   };
 
-  // Get total media count (video counts as first item if available)
   const getMediaList = (project: Achievement) => {
     const list: { type: 'image' | 'video'; src: string }[] = [];
     if (project.video) list.push({ type: 'video', src: project.video });
@@ -45,7 +45,6 @@ export const Gallery: React.FC = () => {
     }
   };
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedProject) return;
@@ -108,7 +107,7 @@ export const Gallery: React.FC = () => {
               <div className="space-y-12 md:space-y-20">
                 <div 
                   onClick={() => openLightbox(item, 0)}
-                  className="relative aspect-[16/10] w-full rounded-[2rem] md:rounded-[2.5rem] bg-apple-gray-50 dark:bg-zinc-900/50 border border-black/[0.03] dark:border-white/[0.03] overflow-hidden group cursor-zoom-in"
+                  className="relative aspect-[16/10] w-full rounded-[2rem] md:rounded-[2.5rem] bg-apple-gray-50 dark:bg-zinc-900/50 border border-black/[0.03] dark:border-white/[0.03] overflow-hidden group cursor-zoom-in shadow-xl shadow-black/5"
                 >
                   {item.images && item.images.length > 0 ? (
                     <img 
@@ -124,22 +123,17 @@ export const Gallery: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Play Overlay if video exists */}
                   {item.video && (
-                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                       <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-black/20 backdrop-blur-md border border-white/20 flex items-center justify-center transition-transform group-hover:scale-110">
                         <svg width="24" height="24" className="md:w-8 md:h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                       </div>
                     </div>
                   )}
 
-                  <div className="absolute inset-0 pointer-events-none border-[0.5px] border-black/[0.03] dark:border-white/[0.03] rounded-[2rem] md:rounded-[2.5rem]" />
-                  
-                  {/* Badge */}
-                  <div className="absolute bottom-6 right-6 bg-black/40 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1.5 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
-                    {item.video && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>}
-                    {(item.images?.length || 0) > 1 && `+${item.images!.length - 1} MORE`}
-                    {(item.images?.length === 1 && !item.video) && 'VIEW FULLSCREEN'}
+                  <div className="absolute bottom-6 right-6 bg-black/60 backdrop-blur-md text-white text-[9px] font-bold px-4 py-2 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 flex items-center gap-2">
+                    {item.video && <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>}
+                    {getMediaList(item).length > 1 ? `EXPLORE ${getMediaList(item).length} ASSETS` : 'FULLSCREEN VIEW'}
                   </div>
                 </div>
 
@@ -160,33 +154,43 @@ export const Gallery: React.FC = () => {
         </div>
       </div>
 
-      {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center bg-white/80 dark:bg-black/90 backdrop-blur-3xl p-4 md:p-10"
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-white/95 dark:bg-black/98 backdrop-blur-2xl p-0 md:p-10"
             onClick={closeLightbox}
           >
+            {/* Minimal Close Button */}
             <motion.button
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="absolute top-10 right-10 z-[210] w-12 h-12 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-colors"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="absolute top-6 right-6 z-[210] w-14 h-14 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-all border border-black/5 dark:border-white/5"
               onClick={closeLightbox}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black dark:text-white"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black dark:text-white"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </motion.button>
 
-            <div className="relative w-full h-full flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <div 
+              className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden" 
+              onClick={(e) => e.stopPropagation()}
+            >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentMediaIndex}
-                  initial={{ opacity: 0, scale: 0.95, x: 20 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 1.05, x: -20 }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  onDragEnd={(e, { offset, velocity }) => {
+                    const swipe = offset.x;
+                    if (swipe < -50) nextMedia();
+                    else if (swipe > 50) prevMedia();
+                  }}
                   className="relative w-full h-full flex items-center justify-center"
                 >
                   {getMediaList(selectedProject)[currentMediaIndex].type === 'video' ? (
@@ -194,13 +198,13 @@ export const Gallery: React.FC = () => {
                       src={getMediaList(selectedProject)[currentMediaIndex].src}
                       controls
                       autoPlay
-                      className="max-w-full max-h-[80vh] rounded-2xl shadow-2xl bg-black"
+                      className="max-w-full max-h-screen md:max-h-[90vh] object-contain rounded-lg md:rounded-3xl shadow-2xl bg-black"
                     />
                   ) : (
                     <img
                       src={getMediaList(selectedProject)[currentMediaIndex].src}
                       alt={selectedProject.title}
-                      className="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl"
+                      className="max-w-full max-h-screen md:max-h-[90vh] object-contain rounded-lg md:rounded-3xl shadow-2xl"
                     />
                   )}
                 </motion.div>
@@ -211,39 +215,43 @@ export const Gallery: React.FC = () => {
                 <>
                   <button 
                     onClick={prevMedia}
-                    className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all text-black dark:text-white"
+                    className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 w-16 h-16 hidden md:flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all text-black dark:text-white border border-black/5 dark:border-white/5"
                   >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                   </button>
                   <button 
                     onClick={nextMedia}
-                    className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all text-black dark:text-white"
+                    className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 w-16 h-16 hidden md:flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all text-black dark:text-white border border-black/5 dark:border-white/5"
                   >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   </button>
 
-                  {/* Indicators */}
-                  <div className="absolute bottom-4 flex gap-2">
+                  {/* High-End Pagination Indicators */}
+                  <div className="absolute bottom-8 flex gap-3 z-[220]">
                     {getMediaList(selectedProject).map((item, i) => (
                       <button
                         key={i}
                         onClick={() => setCurrentMediaIndex(i)}
-                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 flex items-center justify-center ${i === currentMediaIndex ? 'w-6 bg-apple-blue' : 'bg-gray-300 dark:bg-zinc-700'}`}
+                        className={`group relative h-1 transition-all duration-500 rounded-full ${i === currentMediaIndex ? 'w-10 bg-apple-blue' : 'w-4 bg-gray-300 dark:bg-zinc-800'}`}
+                        aria-label={`Go to slide ${i + 1}`}
                       >
-                         {item.type === 'video' && i !== currentMediaIndex && <div className="w-[3px] h-[3px] rounded-full bg-white/50" />}
+                         {item.type === 'video' && i !== currentMediaIndex && (
+                           <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-apple-blue/30" />
+                         )}
+                         <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[8px] font-black opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-gray-400">0{i + 1}</span>
                       </button>
                     ))}
                   </div>
                 </>
               )}
 
-              {/* Minimal Caption */}
-              <div className="absolute bottom-12 md:bottom-20 left-1/2 -translate-x-1/2 text-center pointer-events-none">
-                <p className="text-[10px] font-black tracking-[0.4em] text-apple-blue uppercase mb-2">{selectedProject.category}</p>
-                <h4 className="text-lg md:text-xl font-bold text-black dark:text-white tracking-tight">{selectedProject.title}</h4>
-                <p className="text-[9px] font-bold text-gray-400 mt-2 tracking-widest">
-                  {getMediaList(selectedProject)[currentMediaIndex].type.toUpperCase()} • {currentMediaIndex + 1} / {getMediaList(selectedProject).length}
-                </p>
+              {/* Minimal Media Title Overlay */}
+              <div className="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 text-center pointer-events-none opacity-50">
+                <p className="text-[10px] font-black tracking-[0.4em] text-apple-blue uppercase mb-1">{selectedProject.category}</p>
+                <h4 className="text-sm font-bold text-black dark:text-white tracking-widest uppercase">{selectedProject.title}</h4>
+                {getMediaList(selectedProject).length > 1 && (
+                  <p className="text-[9px] font-bold text-gray-400 mt-2 tracking-widest">{currentMediaIndex + 1} / {getMediaList(selectedProject).length}</p>
+                )}
               </div>
             </div>
           </motion.div>
