@@ -1,4 +1,3 @@
-
 import { Achievement, Website } from './types';
 
 export const ACHIEVEMENTS: Achievement[] = [
@@ -113,7 +112,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'DISCIPLINE',
     images: [
       'https://images.unsplash.com/photo-1523240715639-99f84d3af106?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2340&auto=format&fit=crop'
     ]
   },
   {
@@ -149,7 +149,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'PERFORMANCE',
     images: [
       'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2340&auto=format&fit=crop'
     ]
   },
   {
@@ -160,7 +161,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'LEADERSHIP',
     images: [
       'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1540575861501-7ad060e29ad3?q=80&w=2340&auto=format&fit=crop'
     ],
     video: 'https://assets.mixkit.co/videos/preview/mixkit-business-man-using-a-laptop-4560-large.mp4'
   },
@@ -172,7 +174,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'INTELLIGENCE',
     images: [
       'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2340&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2340&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2340&auto=format&fit=crop'
     ],
     video: 'https://assets.mixkit.co/videos/preview/mixkit-robot-hand-pointing-at-something-31623-large.mp4'
   },

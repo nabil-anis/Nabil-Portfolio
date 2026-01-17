@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -27,7 +28,7 @@ export const AboutPage: React.FC = () => {
             <span className="text-gray-300 dark:text-zinc-800 italic">Human.</span>
           </h1>
           <p className="text-xl md:text-3xl font-medium text-gray-500 dark:text-gray-400 max-w-2xl leading-tight text-balance">
-            A builder, not a spectator. A mind wired for systems, flows, and elegant shortcuts. I spent my time at Salim Habib University convincing computers that elegance and performance are not mutually exclusive.
+            I was born at a very young age. Since then, I’ve spent most of my time convincing computers that I am their master, while they quietly prove otherwise. A builder, not a spectator. A mind wired for systems, flows, and elegant shortcuts.
           </p>
         </motion.div>
 
@@ -103,9 +104,6 @@ export const AboutPage: React.FC = () => {
           </div>
         </motion.div>
       </div>
-      
-      {/* Signature */}
-      <span className="absolute right-4 bottom-4 text-gray-300 dark:text-zinc-800 text-[10px] italic pointer-events-none">By nbl.</span>
     </section>
   );
 };
