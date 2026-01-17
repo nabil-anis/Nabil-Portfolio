@@ -8,9 +8,10 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '26 DECEMBER 2025',
     category: 'ENTREPRENEURSHIP',
     images: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1504868584819-f8e90526354c?q=80&w=2340&auto=format&fit=crop'
+      '/uni33.jpg',
+      '/unifoooolio.jpeg',
+      '/uni11.jpg',
+      '/uni22.jpg'
     ],
     video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-circuit-board-1582-large.mp4'
   },
@@ -37,8 +38,7 @@ export const ACHIEVEMENTS: Achievement[] = [
       'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2340&auto=format&fit=crop'
-    ],
-    video: 'https://assets.mixkit.co/videos/preview/mixkit-doctor-checking-a-patients-lungs-with-a-stethoscope-40502-large.mp4'
+    ]
   },
   {
     id: 'filmfest-2025',
