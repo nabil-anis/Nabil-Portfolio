@@ -7,7 +7,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Final Entrepreneurship project poster presentation. A systemic subversion of academic identity—replacing decorative transcripts with a verifiable, AI-analyzed project portfolio system.',
     date: '26 DECEMBER 2025',
     category: 'ENTREPRENEURSHIP',
-    image: 'unifolio.jpg'
+    image: '/unifolio.jpg'
   },
   {
     id: 'trace-project',
@@ -15,7 +15,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Development and presentation at Teknofest Pakistan. Bringing physical form to digital logic with real-time telemetry and a robust hardware-software handshake.',
     date: '23 DECEMBER 2025',
     category: 'HARDWARE',
-    image: 'trace.jpg'
+    image: '/trace.jpg'
   },
   {
     id: 'jsmu-2025',
@@ -23,7 +23,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Secured 2nd Position province-wide at the JSMU Annual Education & Research Symposium. A study in empathy-driven research and systemic advocacy.',
     date: '17–18 DECEMBER 2025',
     category: 'RESEARCH',
-    image: 'jsmu.jpg'
+    image: '/jsmu.jpg'
   },
   {
     id: 'mit-2025',
@@ -31,7 +31,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Received a formal invitation to participate in MIT’s 2025 hackathon. Participation deferred—a scheduling conflict between two versions of the future.',
     date: '14–15 NOVEMBER 2025',
     category: 'RECOGNITION',
-    image: 'mit.jpg'
+    image: '/mit.jpg'
   },
   {
     id: 'cloudflare-2025',
@@ -39,7 +39,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Navigating global infrastructure constraints. A high-stakes environment where edge computing meets deliberate execution.',
     date: '25 OCTOBER 2025',
     category: 'INFRASTRUCTURE',
-    image: 'cloudflare.jpg'
+    image: '/cloudflare.jpg'
   },
   {
     id: 'saylani-hack-2025',
@@ -47,7 +47,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'A test of endurance and flow. 12 hours of continuous development. Coffee is a system; code is the output.',
     date: '18–19 OCTOBER 2025',
     category: 'ENDURANCE',
-    image: 'saylani-hack.jpg'
+    image: '/saylani-hack.jpg'
   },
   {
     id: 'ieee-day-2025',
@@ -55,7 +55,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Event Host, Treasure Hunt Winner, and 3rd Place in the Interdepartmental Quiz. Efficiency in multiple modalities.',
     date: '16 OCTOBER 2025',
     category: 'LEADERSHIP',
-    image: 'ieee.jpg'
+    image: '/ieee.jpg'
   },
   {
     id: 'nasa-2025',
@@ -63,7 +63,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Applying cosmic-scale data to terrestrial challenges. Engineering solutions with a planetary perspective.',
     date: '4–5 OCTOBER 2025',
     category: 'ENGINEERING',
-    image: 'nasa.jpg'
+    image: '/nasa.jpg'
   },
   {
     id: 'saylani-top',
@@ -71,7 +71,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Completed advanced coursework as Class Topper. Awarded certification by Arif Habib. Rigour is not an option; it is the default.',
     date: 'OCTOBER 2025',
     category: 'DISCIPLINE',
-    image: 'saylani-top.jpg'
+    image: '/saylani-top.jpg'
   },
   {
     id: 'devfest-2025',
@@ -79,7 +79,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Runner-Up in the GDG Kolachi AI competition. Refining models to meet the demands of human curiosity.',
     date: 'OCTOBER 2025',
     category: 'INTELLIGENCE',
-    image: 'devfest.jpg'
+    image: '/devfest.jpg'
   },
   {
     id: 'filmfest-2025',
@@ -87,7 +87,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: '1st Position in Advertisement Competition. Proving that persuasion is just another interface to be designed.',
     date: 'OCTOBER 2025',
     category: 'CREATIVE',
-    image: 'filmfest.jpg'
+    image: '/filmfest.jpg'
   },
   {
     id: 'acm-innovate',
@@ -95,7 +95,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Master of Ceremony. Steering the narrative of technical innovation with a poet’s restraint.',
     date: '13 SEPTEMBER 2025',
     category: 'PERFORMANCE',
-    image: 'IMG-20250919-WA0026.jpg'
+    image: '/acm.jpg'
   },
   {
     id: 'icca-2025',
@@ -103,7 +103,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'The first student to host a virtual technical session at ICCA. Breaking barriers with minimal fuss.',
     date: '15 MAY 2025',
     category: 'LEADERSHIP',
-    image: 'icca.jpg'
+    image: '/icca.jpg'
   },
   {
     id: 'shu-chatbot',
@@ -111,7 +111,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Developing the central AI Chatbot for Salim Habib University. Integrating intelligence into the foundation of campus life.',
     date: '2 JANUARY 2025',
     category: 'INTELLIGENCE',
-    image: 'shu-chatbot.jpg'
+    image: '/shu-chatbot.jpg'
   },
   {
     id: 'mun-2024',
@@ -119,7 +119,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Honorary Mention. A diplomatic detour into systemic negotiation and the art of the compromise.',
     date: '12 OCTOBER 2024',
     category: 'DIPLOMACY',
-    image: 'mun.jpg'
+    image: '/mun.jpg'
   }
 ];
 

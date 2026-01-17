@@ -52,7 +52,7 @@ export const Gallery: React.FC = () => {
               </div>
 
               <div className="space-y-12 md:space-y-20">
-                {/* Visual Block - Requested img structure */}
+                {/* Visual Block - Absolute paths from root fixed image resolution */}
                 <div className="relative aspect-[16/10] w-full rounded-[2rem] md:rounded-[2.5rem] bg-apple-gray-50 dark:bg-apple-gray-500/5 border border-black/[0.03] dark:border-white/[0.03] overflow-hidden group">
                   {item.image && (
                     <img 
@@ -60,7 +60,7 @@ export const Gallery: React.FC = () => {
                       alt={`${item.title} cover image`} 
                       className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" 
                       onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
+                        (e.target as HTMLImageElement).style.opacity = '0';
                         (e.target as HTMLImageElement).parentElement?.classList.add('flex', 'items-center', 'justify-center');
                       }}
                     />
