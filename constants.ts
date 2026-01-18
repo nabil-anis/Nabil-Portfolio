@@ -5,7 +5,7 @@ export const ACHIEVEMENTS: Achievement[] = [
    {
   id: 'unifolio-poster',
   title: 'Unifolio: The Analytical Handshake',
-  description: `Final Entrepreneurship Project Poster Presentation.
+  description: `Final Entrepreneurship Project Poster Presentation. 
 
 Unifolio is a research-driven academic platform that challenges the traditional notion of academic identity as defined by grades, transcripts, and institutional branding. The project proposes a shift toward an evidence-based evaluation model in which student capability is measured through verifiable project work rather than static academic records.
 
