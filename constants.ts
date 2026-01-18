@@ -77,8 +77,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: 'OCTOBER 2025',
     category: 'DISCIPLINE',
     images: [
-      '/certificatee.jpg',
-      '/saylani.jpg'
+      '/saylani.jpg',
+      '/certificatee.png'
     ]
   },
   {
