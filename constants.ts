@@ -57,11 +57,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '14–15 NOVEMBER 2025',
     category: 'RECOGNITION',
     images: [
-      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2340&auto=format&fit=crop'
-    ],
-    video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-elements-loop-video-31627-large.mp4'
+      '/nutt.jpg',
+    ]
   },
   {
     id: 'cloudflare-2025',
