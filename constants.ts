@@ -172,10 +172,9 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '12 OCTOBER 2024',
     category: 'DIPLOMACY',
     images: [
-      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1523240715639-99f84d3af106?q=80&w=2340&auto=format&fit=crop'
-    ]
+      'mun1.jpg'
+    ],
+    video: 'mun2.mp4'
   }
 ];
 
