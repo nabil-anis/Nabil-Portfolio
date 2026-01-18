@@ -117,7 +117,7 @@ export const ACHIEVEMENTS: Achievement[] = [
       'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2340&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2340&auto=format&fit=crop'
     ],
-    video: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-typing-on-a-computer-keyboard-4562-large.mp4'
+    video: '/hack.mp4'
   },
   {
     id: 'devfest-2025',
@@ -140,7 +140,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     images: [
       '/ac.jpg'
     ],
-    video: 
+    video: '/Signing Off - Made with Clipchamp.mp4'
   },
   {
     id: 'icca-2025',
