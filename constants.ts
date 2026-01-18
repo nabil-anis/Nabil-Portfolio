@@ -57,7 +57,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '14–15 NOVEMBER 2025',
     category: 'RECOGNITION',
     images: [
-      '/nutt.jpg',
+      '/nutt.png',
     ]
   },
   {
