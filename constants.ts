@@ -35,7 +35,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     images: [
       '/t2.jpg',
       '/ta1.jpg',
-      '/t3.jpg',
+      '/tAED.jpg',
     ],
     video: 't5.mp4'
   },
