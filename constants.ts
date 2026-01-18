@@ -12,8 +12,7 @@ export const ACHIEVEMENTS: Achievement[] = [
       '/unifoooolio.jpeg',
       '/un11.jpg',
       '/uni22.jpg'
-    ],
-    video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-circuit-board-1582-large.mp4'
+    ]
   },
   {
     id: 'trace-project',
