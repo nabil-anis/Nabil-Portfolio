@@ -113,9 +113,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '18–19 OCTOBER 2025',
     category: 'ENDURANCE',
     images: [
-      'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2340&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2340&auto=format&fit=crop'
+      '/cert.png'
     ],
     video: '/hack.mp4'
   },
@@ -172,7 +170,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '12 OCTOBER 2024',
     category: 'DIPLOMACY',
     images: [
-      'mun1.jpg'
+      'munnn.jpg'
     ],
     video: 'mun2.mp4'
   }
