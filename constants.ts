@@ -142,7 +142,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'icca-2025',
     title: 'ICCA Virtual Tech Session',
-    description: 'THosting ICCA 2025 at Salim Habib University marked a milestone of firsts. As the first student to lead a virtual technical session, I navigated a hybrid setup with chairs on campus and presenters joining live from abroad. The experience sharpened my skills in coordination, technical facilitation, and real-time problem-solving, while establishing a verifiable record of leadership in large-scale academic events. Breaking barriers with minimal fuss.',
+    description: 'Hosting ICCA 2025 at Salim Habib University marked a milestone of firsts. As the first student to lead a virtual technical session, I navigated a hybrid setup with chairs on campus and presenters joining live from abroad. The experience sharpened my skills in coordination, technical facilitation, and real-time problem-solving, while establishing a verifiable record of leadership in large-scale academic events. Breaking barriers with minimal fuss.',
     date: '15 MAY 2025',
     category: 'LEADERSHIP',
     images: [
