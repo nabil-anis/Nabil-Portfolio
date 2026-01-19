@@ -42,7 +42,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'filmfest-2025',
     title: 'University FilmFest: Greeno',
-    description: '1st Position in Advertisement Competition. Proving that persuasion is just another interface to be designed.',
+    description: '1st Position in Advertisement Competition. secured first position at the S.H.U Filmfest. While I was not part of the registered team, I was present during production and assisted where needed, including support with select shots and scene direction. My involvement was acknowledged by the team with a special mention and thanks. The experience reflects collaborative work in a live creative environment, where contribution is defined by participation and trust rather than formal titles.',
     date: '3 DECEMBER 2025',
     category: 'CREATIVE',
     images: [
