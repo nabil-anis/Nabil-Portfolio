@@ -21,7 +21,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     date: '23 DECEMBER 2025',
     category: 'HARDWARE',
     images: [
-      'trace r&n.jpg',
+      'trace-r&n.jpg',
       'trace2.jpg'
     ],
     video: '/ttt.mp4'
@@ -126,7 +126,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     images: [
       '/ac.jpg'
     ],
-    video: '/Signing Off - Made with Clipchamp.mp4'
+    video: '/SigningOff-MadewithClipchamp.mp4'
   },
   {
     id: 'saylani-hack-2025',
@@ -147,7 +147,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'LEADERSHIP',
     images: [
       '/iccAA.jpg',
-      '/icca2.jpg'
+      '/icca1.jpg'
     ],
     video: 'icca3.mp4'
   },
