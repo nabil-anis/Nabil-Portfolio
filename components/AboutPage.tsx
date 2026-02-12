@@ -33,7 +33,7 @@ export const AboutPage: React.FC = () => {
 
         {/* Humorous Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -50,7 +50,7 @@ export const AboutPage: React.FC = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -65,7 +65,7 @@ export const AboutPage: React.FC = () => {
           </motion.div>
 
           {/* Specs Table */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -92,14 +92,49 @@ export const AboutPage: React.FC = () => {
             End of Transmission
           </p>
           <div className="relative inline-block">
-            <p className="text-2xl md:text-3xl font-bold text-black dark:text-white italic tracking-tight">
+            <p className="text-2xl md:text-3xl font-bold text-black dark:text-white italic tracking-tight mb-8">
               "If you're still reading this, you're either a recruiter or my mother. <br />Either way, let's talk."
             </p>
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12">
+              <motion.a
+                href="/nbl.cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative px-10 py-4 rounded-full bg-black dark:bg-white text-white dark:text-black text-xs font-bold uppercase tracking-[0.3em] overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]" />
+                <span className="relative flex items-center gap-3">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  View CV
+                </span>
+              </motion.a>
+
+              <motion.a
+                href="/nbl.cv.pdf"
+                download="nbl.cv.pdf"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="glass group px-10 py-4 rounded-full border border-black/10 dark:border-white/10 text-black dark:text-white text-xs font-bold uppercase tracking-[0.3em] transition-all duration-300"
+              >
+                <span className="flex items-center gap-3">
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download CV
+                </span>
+              </motion.a>
+            </div>
           </div>
           <div className="mt-12 flex justify-center gap-6">
-             <div className="w-2 h-2 rounded-full bg-apple-blue animate-pulse" />
-             <div className="w-2 h-2 rounded-full bg-apple-blue animate-pulse [animation-delay:0.2s]" />
-             <div className="w-2 h-2 rounded-full bg-apple-blue animate-pulse [animation-delay:0.4s]" />
+            <div className="w-2 h-2 rounded-full bg-apple-blue animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-apple-blue animate-pulse [animation-delay:0.2s]" />
+            <div className="w-2 h-2 rounded-full bg-apple-blue animate-pulse [animation-delay:0.4s]" />
           </div>
         </motion.div>
       </div>
