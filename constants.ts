@@ -2,7 +2,14 @@ import { Achievement, Website } from './types';
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
-     id: 'unifolio-poster',
+    id: 'suparco-cansat',
+    title: 'SUPARCO CanSat Space Technology Workshop',
+    description: 'Participated in a 2-day hands-on Space Technology Workshop at SUPARCO, where I designed and built a CanSat (miniature satellite), gaining practical experience in satellite systems, avionics, sensors, communication, and space mission fundamentals.',
+    date: 'FEBRUARY 2026',
+    category: 'SPACE TECH'
+  },
+  {
+    id: 'unifolio-poster',
     title: 'Unifolio',
     description: 'Unifolio is a premium, analytics driven academic dashboard designed as a cross disciplinary counterpart to GitHub. It presents student work as a verifiable record of academic capability, shifting evaluation from reputation to demonstrable output. By grounding academic merit in projects rather than perception, Unifolio offers a clear and evidence based view of excellence that is measurable, inspectable, and comparable.',
     date: '26 DECEMBER 2025',
