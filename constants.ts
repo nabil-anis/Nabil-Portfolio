@@ -6,7 +6,15 @@ export const ACHIEVEMENTS: Achievement[] = [
     title: 'SUPARCO CanSat Space Technology Workshop',
     description: 'Participated in a 2-day hands-on Space Technology Workshop at SUPARCO, where I designed and built a CanSat (miniature satellite), gaining practical experience in satellite systems, avionics, sensors, communication, and space mission fundamentals.',
     date: 'FEBRUARY 2026',
-    category: 'SPACE TECH'
+    category: 'SPACE TECH',
+    images: [
+      '20260211_152604.jpg',
+      'DSC04315.JPG',
+      '20260211_152604.jpg',
+      'cansat1.jpg',
+      'launch.jpg'
+    ],
+    video: 'suparco.mp4'
   },
   {
     id: 'unifolio-poster',
