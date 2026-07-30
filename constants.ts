@@ -10,7 +10,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     images: [
       '20260211_152604.jpg',
       'DSC04315.JPG',
-      '20260211_152604.jpg',
+      'DSC04315.jpg',
       'cansat1.jpg',
       'launch.jpg'
     ],
