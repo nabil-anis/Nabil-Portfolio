@@ -177,6 +177,13 @@ export const ACHIEVEMENTS: Achievement[] = [
 
 export const WEBSITES: Website[] = [
   {
+    id: 'heart-grade',
+    name: 'HeartGrade',
+    description: 'AI-powered healthcare platform designed to assess cardiovascular risk, explain heart health predictions using machine learning, and help users take proactive steps toward early prevention and better health decisions.',
+    url: 'https://heart-grade.vercel.app/',
+    techStack: ['AI', 'Healthcare', 'Machine Learning']
+  },
+  {
     id: 'unifolio',
     name: 'Unifolio',
     description: 'A premium, analytical academic dashboard. Designed to be a GitHub for all disciplines, Unifolio provides a verifiable source of academic truth, ranking merit over mythology with Apple-grade aesthetics.',
