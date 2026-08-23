@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { AboutPage } from './components/AboutPage';
-import { Gallery } from './components/Gallery';
-import { Websites } from './components/Websites';
 import { Page } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const Hero = lazy(() => import('./components/Hero').then(m => ({ default: m.Hero })));
+const About = lazy(() => import('./components/About').then(m => ({ default: m.About })));
+const AboutPage = lazy(() => import('./components/AboutPage').then(m => ({ default: m.AboutPage })));
+const Gallery = lazy(() => import('./components/Gallery').then(m => ({ default: m.Gallery })));
+const Websites = lazy(() => import('./components/Websites').then(m => ({ default: m.Websites })));
+
+// Loading fallback component
+const Loader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
+    <div className="w-6 h-6 border-2 border-apple-blue border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.Home);
@@ -73,7 +81,9 @@ const App: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            {renderContent()}
+            <Suspense fallback={<Loader />}>
+              {renderContent()}
+            </Suspense>
           </motion.div>
         </AnimatePresence>
       </main>
